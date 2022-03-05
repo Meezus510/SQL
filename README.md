@@ -7,13 +7,11 @@ SELECT *
 FROM CITY
 WHERE POPULATION>100000 AND COUNTRYCODE = 'USA';
 
-
 Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
 --------------------------------
 SELECT DISTINCT CITY
 FROM STATION
 WHERE CITY REGEXP '^[aeiou]';
-
 
 Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
 --------------------------------
@@ -25,3 +23,9 @@ Write a query that prints a list of employee names (i.e.: the name attribute) fr
 --------------------------------
 SELECT NAME FROM EMPLOYEE 
 ORDER BY NAME ASC
+
+Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.
+--------------------------------
+SELECT DISTINCT CITY
+FROM STATION
+WHERE ID%2=0
