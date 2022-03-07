@@ -29,3 +29,18 @@ Query a list of CITY names from STATION for cities that have an even ID number. 
 SELECT DISTINCT CITY
 FROM STATION
 WHERE ID%2=0
+
+Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table. For example, if there are three records in the table with CITY values 'New York', 'New York', 'Bengalaru', there are 2 different city names: 'New York' and 'Bengalaru'. The query returns 1, because total# - unique# = 3 - 2 = 1
+--------------------------------
+SELECT COUNT(CITY) - COUNT(DISTINCT CITY)
+FROM STATION
+
+Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically. Sample Input: For example, CITY has four entries: DEF, ABC, PQRS and WXY.Sample Output: ABC 3 PQRS 4 Explanation: When ordered alphabetically, the CITY names are listed as ABC, DEF, PQRS, and WXY, with lengths 3 3 4 and 3. The longest name is PQRS, but there are 3 options for shortest named city. Choose ABC, because it comes first alphabetically. Note: You can write two separate queries to get the desired output. It need not be a single query.
+--------------------------------
+SELECT min(CITY), LENGTH(min(CITY))
+FROM STATION
+WHERE length(CITY) = (SELECT min(length(CITY)) FROM STATION)
+UNION ALL
+SELECT max(CITY), LENGTH(max(CITY))
+FROM STATION
+WHERE length(CITY) = (SELECT max(length(CITY)) FROM STATION)
