@@ -44,3 +44,17 @@ UNION ALL
 SELECT max(CITY), LENGTH(max(CITY))
 FROM STATION
 WHERE length(CITY) = (SELECT max(length(CITY)) FROM STATION)
+
+Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+--------------------------------
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY REGEXP '^[aeiou].*[aeiou]$';
+
+Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+--------------------------------
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY REGEXP '^(?![aeiou]).*'
+
+
