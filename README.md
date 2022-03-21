@@ -81,3 +81,21 @@ SELECT NAME
 FROM STUDENTS
 WHERE MARKS > 75
 ORDER BY RIGHT (NAME, 3), ID ASC
+
+Write a query that prints a list of employee names (i.e.: the name attribute) for employees in Employee having a salary greater than  per month who have been employees for less than  months. Sort your result by ascending employee_id.
+--------------------------------
+SELECT NAME
+FROM EMPLOYEE
+WHERE SALARY>2000 AND MONTHS<10
+ORDER BY EMPLOYEE_ID ASC
+
+Query the following two values from the STATION table: The sum of all values in LAT_N rounded to a scale of 2 decimal places. The sum of all values in LONG_W rounded to a scale of 2 decimal places.
+--------------------------------
+SELECT ROUND(SUM(LAT_N),2), ROUND(SUM(LONG_W),2)
+FROM STATION
+
+Query the sum of Northern Latitudes (LAT_N) from STATION having values greater than 38.7880 and less than 137.2345. Truncate your answer to  decimal places.
+--------------------------------
+SELECT ROUND(SUM(LAT_N), 4)
+FROM STATION
+WHERE LAT_N < 137.2345 AND LAT_N > 38.7880
