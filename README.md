@@ -140,3 +140,10 @@ Query the Euclidean Distance between points P1 and P2 and format your answer to 
 SELECT ROUND(SQRT(POWER(MAX(LAT_N)-MIN(LAT_N),2)+POWER(MAX(LONG_W)-MIN(LONG_W),2)),4)
 FROM STATION
 
+A median is defined as a number separating the higher half of a data set from the lower half. Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to 4 decimal places.
+--------------------------------
+WITH STAT AS 
+(SELECT LAT_N, ROW_NUMBER() OVER(ORDER BY LAT_N ASC)NUM FROM STATION)
+SELECT ROUND(LAT_N,4) 
+FROM STAT 
+WHERE NUM= (SELECT COUNT(*) FROM STATION)/2
