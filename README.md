@@ -147,3 +147,10 @@ WITH STAT AS
 SELECT ROUND(LAT_N,4) 
 FROM STAT 
 WHERE NUM= (SELECT COUNT(*) FROM STATION)/2
+
+Query the sum of the populations for all Japanese cities in CITY. The COUNTRYCODE for Japan is JPN.
+--------------------------------
+SELECT SUM(POPULATION)
+FROM CITY
+WHERE COUNTRYCODE = 'JPN'
+
