@@ -163,3 +163,8 @@ Samantha was tasked with calculating the average monthly salaries for all employ
 --------------------------------
 SELECT CEIL(AVG(salary)-AVG(REPLACE(salary, '0', '')))
 FROM EMPLOYEES
+
+Query the average population for all cities in CITY, rounded down to the nearest integer.
+--------------------------------
+SELECT ROUND(AVG(POPULATION))
+FROM CITY
